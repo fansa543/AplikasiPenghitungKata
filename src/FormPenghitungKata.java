@@ -168,6 +168,28 @@ public class FormPenghitungKata extends javax.swing.JFrame {
             }
         });
     }
+            
+                // Method utama untuk update semua hitungan
+    private void updateCounts() {
+        String text = textAreaInput.getText();
+        if (text == null) text = "";
+
+        int charsWithSpace = text.length();
+        int charsNoSpace = text.replaceAll("\\s+", "").length();
+
+        int words = countWords(text);
+        int sentences = countSentences(text);
+        int paragraphs = countParagraphs(text);
+
+        lblWords.setText("Kata: " + words);
+        lblChars.setText("Karakter (dgn spasi): " + charsWithSpace);
+        lblCharsNoSpace.setText("Karakter (tanpa spasi): " + charsNoSpace);
+        lblSentences.setText("Kalimat: " + sentences);
+        lblParagraphs.setText("Paragraf: " + paragraphs);
+    }
+
+            
+            
 
 
 

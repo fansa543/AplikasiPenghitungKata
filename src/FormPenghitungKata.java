@@ -206,6 +206,17 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         }
         return c;
     }
+            
+                private int countParagraphs(String text) {
+        if (text.trim().isEmpty()) return 0;
+        String[] parts = text.split("\\r?\\n\\s*\\r?\\n");
+        int c = 0;
+        for (String s : parts) {
+            if (s.trim().length() > 0) c++;
+        }
+        return c;
+    }
+
 
 
 

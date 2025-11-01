@@ -79,22 +79,34 @@ public class FormPenghitungKata extends javax.swing.JFrame {
             
                 // Method utama untuk update semua hitungan
     private void updateCounts() {
-        String text = textAreaInput.getText();
-        if (text == null) text = "";
+    String text = textAreaInput.getText();
+    if (text == null) text = "";
 
-        
-        int charsNoSpace = text.replaceAll("\\s+", "").length();
-
-        int words = countWords(text);
-        int sentences = countSentences(text);
-        int paragraphs = countParagraphs(text);
-
-        lblWords.setText("Kata: " + words);
-        
-        lblCharsNoSpace.setText("Karakter (tanpa spasi): " + charsNoSpace);
-        lblSentences.setText("Kalimat: " + sentences);
-        lblParagraphs.setText("Paragraf: " + paragraphs);
+    // 🔹 Jika textarea kosong → reset semua label termasuk karakter dgn spasi
+    if (text.trim().isEmpty()) {
+        lblWords.setText("Kata: 0");
+        lblCharsNoSpace.setText("Karakter (tanpa spasi): 0");
+        lblSentences.setText("Kalimat: 0");
+        lblParagraphs.setText("Paragraf: 0");
+        lblChars.setText("Karakter (dgn spasi): 0"); // ✅ reset juga
+        return;
     }
+
+    // 🔹 Kalau tidak kosong → lanjut hitung real-time
+    int charsNoSpace = text.replaceAll("\\s+", "").length();
+    int words = countWords(text);
+    int sentences = countSentences(text);
+    int paragraphs = countParagraphs(text);
+
+    // Update label real-time
+    lblWords.setText("Kata: " + words);
+    lblCharsNoSpace.setText("Karakter (tanpa spasi): " + charsNoSpace);
+    lblSentences.setText("Kalimat: " + sentences);
+    lblParagraphs.setText("Paragraf: " + paragraphs);
+
+    // ⚠️ Jangan hitung "Karakter (dgn spasi)" di sini — biar cuma muncul saat klik tombol Hitung
+}
+
     
         private int countWords(String text) {
         if (text.trim().isEmpty()) return 0;
@@ -311,7 +323,11 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         clearHighlights();
         
         String text = textAreaInput.getText();
-    lblChars.setText("Karakter (dgn spasi): " + text.length());
+    if (!text.trim().isEmpty()) {
+        lblChars.setText("Karakter (dgn spasi): " + text.length());
+    } else {
+        lblChars.setText("Karakter (dgn spasi): 0");
+    }
     }//GEN-LAST:event_btnHitungActionPerformed
 
     /**

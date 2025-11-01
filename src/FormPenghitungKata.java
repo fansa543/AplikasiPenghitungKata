@@ -123,6 +123,52 @@ public class FormPenghitungKata extends javax.swing.JFrame {
             .addContainerGap(10, Short.MAX_VALUE)
         );
     }
+        
+            private void attachListeners() {
+        // DocumentListener untuk update real-time
+        textAreaInput.getDocument().addDocumentListener(new DocumentListener() {
+            @Override public void insertUpdate(DocumentEvent e) { updateCounts(); clearHighlights(); }
+            @Override public void removeUpdate(DocumentEvent e) { updateCounts(); clearHighlights(); }
+            @Override public void changedUpdate(DocumentEvent e) { updateCounts(); clearHighlights(); }
+        });
+
+        // tombol Hitung (redundan karena DocumentListener sudah real-time)
+        btnHitung.addActionListener(e -> {
+            updateCounts();
+            clearHighlights();
+        });
+
+        // tombol Cari & Highlight
+        btnCari.addActionListener(e -> {
+            clearHighlights();
+            String pattern = tfCari.getText().trim();
+            if (pattern.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Masukkan kata/teks yang ingin dicari.", "Peringatan", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            int found = highlightAllOccurrences(pattern, true); // true = case-insensitive
+            lblCariCount.setText("Ditemukan: " + found);
+            JOptionPane.showMessageDialog(this, "Ditemukan: " + found + " kemunculan.", "Hasil Pencarian", JOptionPane.INFORMATION_MESSAGE);
+        });
+
+        // tombol Simpan
+        btnSimpan.addActionListener(e -> {
+            JFileChooser chooser = new JFileChooser();
+            chooser.setDialogTitle("Simpan teks dan hasil perhitungan");
+            chooser.setSelectedFile(new File("hasil_penghitungan.txt"));
+            int userSel = chooser.showSaveDialog(this);
+            if (userSel == JFileChooser.APPROVE_OPTION) {
+                File f = chooser.getSelectedFile();
+                try {
+                    saveToFile(f);
+                    JOptionPane.showMessageDialog(this, "Berhasil menyimpan ke:\n" + f.getAbsolutePath(), "Sukses", JOptionPane.INFORMATION_MESSAGE);
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this, "Gagal menyimpan: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+    }
+
 
 
     /**

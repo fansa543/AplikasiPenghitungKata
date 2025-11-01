@@ -36,6 +36,94 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         attachListeners();
         updateCounts();
     }
+    
+        private void initComponents() {
+        setTitle("Aplikasi Penghitung Kata");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(800, 600);
+        setLocationRelativeTo(null);
+
+        textAreaInput = new javax.swing.JTextArea();
+        textAreaInput.setLineWrap(true);
+        textAreaInput.setWrapStyleWord(true);
+        textAreaInput.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+
+        jScrollPane1 = new javax.swing.JScrollPane(textAreaInput);
+
+        btnHitung = new javax.swing.JButton("Hitung");
+        btnSimpan = new javax.swing.JButton("Simpan");
+        btnCari = new javax.swing.JButton("Cari & Highlight");
+        tfCari = new javax.swing.JTextField();
+        tfCari.setColumns(15);
+
+        lblWords = new javax.swing.JLabel("Kata: 0");
+        lblChars = new javax.swing.JLabel("Karakter (dgn spasi): 0");
+        lblCharsNoSpace = new javax.swing.JLabel("Karakter (tanpa spasi): 0");
+        lblSentences = new javax.swing.JLabel("Kalimat: 0");
+        lblParagraphs = new javax.swing.JLabel("Paragraf: 0");
+        lblCariCount = new javax.swing.JLabel("Ditemukan: 0");
+
+        // Layout sederhana: top textarea, bawah panel kontrol
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setBorder(BorderFactory.createEmptyBorder(8,8,8,8));
+        GroupLayout layout = new GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+
+        // Horizontal group
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(lblWords)
+                    .addComponent(lblChars)
+                    .addComponent(lblCharsNoSpace))
+                .addGap(40)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSentences)
+                    .addComponent(lblParagraphs))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(tfCari, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSimpan)
+                )
+                .addGap(8)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCari)
+                    .addComponent(btnHitung)
+                    .addComponent(lblCariCount))
+                .addContainerGap()
+            )
+        );
+
+        // Vertical group
+        layout.setVerticalGroup(
+            layout.createSequentialGroup()
+            .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 380, GroupLayout.PREFERRED_SIZE)
+            .addGap(8)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                .addComponent(lblWords)
+                .addComponent(lblSentences)
+                .addComponent(tfCari)
+                .addComponent(btnCari)
+            )
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                .addComponent(lblChars)
+                .addComponent(lblParagraphs)
+                .addComponent(btnSimpan)
+                .addComponent(btnHitung)
+            )
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+                .addComponent(lblCharsNoSpace)
+                .addComponent(lblCariCount)
+            )
+            .addContainerGap(10, Short.MAX_VALUE)
+        );
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -8,11 +8,29 @@
  *
  * @author LENOVO
  */
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Highlighter;
+import javax.swing.text.DefaultHighlighter;
+
 public class FormPenghitungKata extends javax.swing.JFrame {
 
     /**
      * Creates new form FormPenghitungKata
      */
+    private final Highlighter.HighlightPainter highlightPainter = new DefaultHighlighter.DefaultHighlightPainter(javax.swing.UIManager.getColor("TextArea.selectionBackground"));
+    
     public FormPenghitungKata() {
         initComponents();
     }
@@ -28,43 +46,43 @@ public class FormPenghitungKata extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        textAreaInput = new javax.swing.JTextArea();
+        btnHitung = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
+        lblWords = new javax.swing.JLabel();
+        lblChars = new javax.swing.JLabel();
+        lblCharsNoSpace = new javax.swing.JLabel();
+        lblSentences = new javax.swing.JLabel();
+        lblParagraphs = new javax.swing.JLabel();
+        btnCari = new javax.swing.JButton();
+        lblCariCount = new javax.swing.JLabel();
+        tfCari = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textAreaInput.setColumns(20);
+        textAreaInput.setRows(5);
+        jScrollPane1.setViewportView(textAreaInput);
 
-        jButton1.setText("jButton1");
+        btnHitung.setText("Hitung");
 
-        jButton2.setText("jButton2");
+        btnSimpan.setText("Simpan");
 
-        jLabel1.setText("jLabel1");
+        lblWords.setText("jLabel1");
 
-        jLabel2.setText("jLabel2");
+        lblChars.setText("jLabel2");
 
-        jLabel3.setText("jLabel3");
+        lblCharsNoSpace.setText("jLabel3");
 
-        jLabel4.setText("jLabel4");
+        lblSentences.setText("jLabel4");
 
-        jLabel5.setText("jLabel5");
+        lblParagraphs.setText("jLabel5");
 
-        jButton3.setText("jButton3");
+        btnCari.setText("Cari");
 
-        jLabel6.setText("jLabel6");
+        lblCariCount.setText("jLabel6");
 
-        jTextField1.setText("jTextField1");
+        tfCari.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,26 +92,26 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                 .addGap(88, 88, 88)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(lblCharsNoSpace)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblCariCount, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
-                                .addComponent(jButton3))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCari))
+                            .addComponent(tfCari, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnHitung)
                                 .addGap(26, 26, 26)
-                                .addComponent(jButton2)))
+                                .addComponent(btnSimpan)))
                         .addGap(43, 43, 43))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
+                            .addComponent(lblWords)
+                            .addComponent(lblChars)
+                            .addComponent(lblParagraphs)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addComponent(lblSentences))
                         .addContainerGap(132, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -102,28 +120,28 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(jLabel1)
+                .addComponent(lblWords)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblChars)
+                    .addComponent(tfCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(lblCharsNoSpace)
                         .addGap(26, 26, 26))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCari)
+                            .addComponent(lblCariCount, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)))
-                .addComponent(jLabel4)
+                .addComponent(lblSentences)
                 .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnHitung)
+                    .addComponent(btnSimpan))
                 .addGap(5, 5, 5)
-                .addComponent(jLabel5)
+                .addComponent(lblParagraphs)
                 .addContainerGap(88, Short.MAX_VALUE))
         );
 
@@ -183,18 +201,18 @@ public class FormPenghitungKata extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton btnCari;
+    private javax.swing.JButton btnHitung;
+    private javax.swing.JButton btnSimpan;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblCariCount;
+    private javax.swing.JLabel lblChars;
+    private javax.swing.JLabel lblCharsNoSpace;
+    private javax.swing.JLabel lblParagraphs;
+    private javax.swing.JLabel lblSentences;
+    private javax.swing.JLabel lblWords;
+    private javax.swing.JTextArea textAreaInput;
+    private javax.swing.JTextField tfCari;
     // End of variables declaration//GEN-END:variables
 }

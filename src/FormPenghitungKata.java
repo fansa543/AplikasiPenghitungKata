@@ -196,6 +196,17 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         while (m.find()) c++;
         return c;
     }
+        
+            private int countSentences(String text) {
+        if (text.trim().isEmpty()) return 0;
+        String[] parts = text.split("[.!?]+\\s*");
+        int c = 0;
+        for (String s : parts) {
+            if (s.trim().length() > 0) c++;
+        }
+        return c;
+    }
+
 
 
             

@@ -216,6 +216,31 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         }
         return c;
     }
+                
+                    private int highlightAllOccurrences(String patternText, boolean caseInsensitive) {
+        String content = textAreaInput.getText();
+        if (content.isEmpty() || patternText.isEmpty()) return 0;
+
+        Pattern pattern;
+        if (caseInsensitive) {
+            pattern = Pattern.compile(Pattern.quote(patternText), Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CHARACTER_CLASS);
+        } else {
+            pattern = Pattern.compile(Pattern.quote(patternText), Pattern.UNICODE_CHARACTER_CLASS);
+        }
+        Matcher matcher = pattern.matcher(content);
+        Highlighter high = textAreaInput.getHighlighter();
+        int found = 0;
+        while (matcher.find()) {
+            try {
+                high.addHighlight(matcher.start(), matcher.end(), highlightPainter);
+                found++;
+            } catch (BadLocationException ex) {
+                // ignore
+            }
+        }
+        return found;
+    }
+
 
 
 

@@ -240,6 +240,12 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         }
         return found;
     }
+                    
+                        private void clearHighlights() {
+        textAreaInput.getHighlighter().removeAllHighlights();
+        lblCariCount.setText("Ditemukan: 0");
+    }
+
 
 
 

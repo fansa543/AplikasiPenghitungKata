@@ -33,6 +33,8 @@ public class FormPenghitungKata extends javax.swing.JFrame {
     
     public FormPenghitungKata() {
         initComponents();
+        attachListeners();
+        updateCounts();
     }
 
     /**

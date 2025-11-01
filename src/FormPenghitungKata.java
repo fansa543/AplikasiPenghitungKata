@@ -187,6 +187,16 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         lblSentences.setText("Kalimat: " + sentences);
         lblParagraphs.setText("Paragraf: " + paragraphs);
     }
+    
+        private int countWords(String text) {
+        if (text.trim().isEmpty()) return 0;
+        Pattern p = Pattern.compile("\\b[\\p{L}0-9']+\\b", Pattern.UNICODE_CHARACTER_CLASS);
+        Matcher m = p.matcher(text);
+        int c = 0;
+        while (m.find()) c++;
+        return c;
+    }
+
 
             
             

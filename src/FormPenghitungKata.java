@@ -85,10 +85,10 @@ public class FormPenghitungKata extends javax.swing.JFrame {
     // 🔹 Jika textarea kosong → reset semua label termasuk karakter dgn spasi
     if (text.trim().isEmpty()) {
         lblWords.setText("Kata: 0");
-        lblCharsNoSpace.setText("Karakter (tanpa spasi): 0");
+        lblCharsNoSpace.setText("Karakter tanpa spasi: 0");
         lblSentences.setText("Kalimat: 0");
         lblParagraphs.setText("Paragraf: 0");
-        lblChars.setText("Karakter (dgn spasi): 0"); // ✅ reset juga
+        lblChars.setText("Karakter dgn spasi: 0"); // ✅ reset juga
         return;
     }
 
@@ -100,7 +100,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
 
     // Update label real-time
     lblWords.setText("Kata: " + words);
-    lblCharsNoSpace.setText("Karakter (tanpa spasi): " + charsNoSpace);
+    lblCharsNoSpace.setText("Karakter tanpa spasi: " + charsNoSpace);
     lblSentences.setText("Kalimat: " + sentences);
     lblParagraphs.setText("Paragraf: " + paragraphs);
 
@@ -320,14 +320,26 @@ public class FormPenghitungKata extends javax.swing.JFrame {
     private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungActionPerformed
         // TODO add your handling code here:
          updateCounts();
-        clearHighlights();
-        
-        String text = textAreaInput.getText();
-    if (!text.trim().isEmpty()) {
-        lblChars.setText("Karakter (dgn spasi): " + text.length());
-    } else {
-        lblChars.setText("Karakter (dgn spasi): 0");
+    clearHighlights();
+
+    String text = textAreaInput.getText();
+    if (text == null) text = "";
+
+    // Jika kosong → reset ke 0
+    if (text.trim().isEmpty()) {
+        lblChars.setText("Karakter dgn spasi: 0");
+        return;
     }
+
+    // Cek apakah ada whitespace (spasi/tab/newline). 
+    // Jika tidak ada whitespace sama sekali, kita tidak tampilkan hasilnya (pakai "-" misalnya)
+    boolean hasWhitespace = text.matches(".*\\s+.*"); // true kalau ada spasi/tab/newline
+    if (!hasWhitespace) {
+        lblChars.setText("Karakter dgn spasi: -"); // atau "0" kalau kamu mau 0
+    } else {
+        lblChars.setText("Karakter dgn spasi: " + text.length());
+    }
+
     }//GEN-LAST:event_btnHitungActionPerformed
 
     /**

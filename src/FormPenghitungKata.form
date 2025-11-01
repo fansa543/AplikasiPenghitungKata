@@ -51,7 +51,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lblCharsNoSpace" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="115" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="lblCariCount" min="-2" pref="85" max="-2" attributes="0"/>
@@ -75,7 +75,7 @@
                               <Component id="jScrollPane1" alignment="0" min="-2" pref="379" max="-2" attributes="0"/>
                               <Component id="lblSentences" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="132" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -140,6 +140,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Hitung"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHitungActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSimpan">
           <Properties>
@@ -148,27 +151,27 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblWords">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel1"/>
+            <Property name="text" type="java.lang.String" value="Kata"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblChars">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
+            <Property name="text" type="java.lang.String" value="Karakter dgn spasi"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCharsNoSpace">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel3"/>
+            <Property name="text" type="java.lang.String" value="karakter tanpa spasi"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSentences">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel4"/>
+            <Property name="text" type="java.lang.String" value="Kalimat"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblParagraphs">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
+            <Property name="text" type="java.lang.String" value="Paragraf"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnCari">
@@ -177,14 +180,8 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCariCount">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel6"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfCari">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

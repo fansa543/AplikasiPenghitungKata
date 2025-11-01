@@ -245,6 +245,26 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         textAreaInput.getHighlighter().removeAllHighlights();
         lblCariCount.setText("Ditemukan: 0");
     }
+                        
+                            private void saveToFile(File f) throws IOException {
+        String text = textAreaInput.getText();
+        StringBuilder sb = new StringBuilder();
+        sb.append("=== Aplikasi Penghitung Kata ===\n\n");
+        sb.append("Teks:\n");
+        sb.append(text).append("\n\n");
+        sb.append("===== Hasil Penghitungan =====\n");
+        sb.append(lblWords.getText()).append("\n");
+        sb.append(lblChars.getText()).append("\n");
+        sb.append(lblCharsNoSpace.getText()).append("\n");
+        sb.append(lblSentences.getText()).append("\n");
+        sb.append(lblParagraphs.getText()).append("\n");
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(f))) {
+            bw.write(sb.toString());
+            bw.flush();
+        }
+    }
+
 
 
 

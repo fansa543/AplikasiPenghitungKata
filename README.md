@@ -316,4 +316,4 @@ kalau di klik no dia bakal balik ke text
 
 
 
-*Selesai.*
+*Selesai 100.*

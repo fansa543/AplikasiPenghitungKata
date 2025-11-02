@@ -298,6 +298,7 @@ ketika di reset mereset semuanya, dan kembali ke bagian text
 <img width="1019" height="747" alt="image" src="https://github.com/user-attachments/assets/b0f0e77d-0fb7-469e-a2c9-58db3df922fd" />
 
 <img width="1017" height="778" alt="image" src="https://github.com/user-attachments/assets/6fd98624-c2c6-436e-934e-5c2634df2a43" />
+
 ---
 
 ## ketika keluar
@@ -307,13 +308,12 @@ kalau di klik no dia bakal balik ke text
 
 ---
 
+##kata dan paragraf
+
+kata akan terhitung pada saat ada tanda baca, dan paragraf ketika ada spasi line
+<img width="916" height="777" alt="image" src="https://github.com/user-attachments/assets/9323dbb6-2f52-4f86-b2d5-6f4acb00611a" />
 
 
-
-
-
-
-
-
+---
 
 *Selesai 100.*

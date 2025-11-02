@@ -308,7 +308,7 @@ kalau di klik no dia bakal balik ke text
 
 ---
 
-##kata dan paragraf
+## kata dan paragraf
 
 kata akan terhitung pada saat ada tanda baca, dan paragraf ketika ada spasi line
 <img width="916" height="777" alt="image" src="https://github.com/user-attachments/assets/9323dbb6-2f52-4f86-b2d5-6f4acb00611a" />

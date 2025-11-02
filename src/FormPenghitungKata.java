@@ -18,13 +18,18 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Highlighter;
 import javax.swing.text.DefaultHighlighter;
+import java.awt.Color;
+
 
 public class FormPenghitungKata extends javax.swing.JFrame {
 
     /**
      * Creates new form FormPenghitungKata
      */
-    private final Highlighter.HighlightPainter highlightPainter = new DefaultHighlighter.DefaultHighlightPainter(javax.swing.UIManager.getColor("TextArea.selectionBackground"));
+    private static final Color HIGHLIGHT_COLOR = new Color(255, 255, 120);
+private final Highlighter.HighlightPainter highlightPainter =
+    new DefaultHighlighter.DefaultHighlightPainter(HIGHLIGHT_COLOR);
+
     
     public FormPenghitungKata() {
         initComponents();

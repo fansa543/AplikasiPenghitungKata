@@ -218,42 +218,73 @@ private final Highlighter.HighlightPainter highlightPainter =
         tfCari = new javax.swing.JTextField();
         btnReset = new javax.swing.JButton();
         btnKeluar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 205, 217));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
         textAreaInput.setColumns(20);
+        textAreaInput.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         textAreaInput.setRows(5);
+        textAreaInput.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jScrollPane1.setViewportView(textAreaInput);
 
+        btnHitung.setBackground(new java.awt.Color(177, 224, 146));
+        btnHitung.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnHitung.setText("Hitung");
+        btnHitung.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnHitung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHitungActionPerformed(evt);
             }
         });
 
+        btnSimpan.setBackground(new java.awt.Color(220, 243, 66));
+        btnSimpan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnSimpan.setText("Simpan");
+        btnSimpan.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        lblWords.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblWords.setText("Kata");
 
+        lblChars.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblChars.setText("Karakter dgn spasi");
 
+        lblCharsNoSpace.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblCharsNoSpace.setText("karakter tanpa spasi");
 
+        lblSentences.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblSentences.setText("Kalimat");
 
+        lblParagraphs.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblParagraphs.setText("Paragraf");
 
+        btnCari.setBackground(new java.awt.Color(212, 199, 133));
+        btnCari.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnCari.setText("Cari");
+        btnCari.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        lblCariCount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+
+        tfCari.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        tfCari.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        btnReset.setBackground(new java.awt.Color(162, 166, 105));
+        btnReset.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnReset.setText("Reset");
+        btnReset.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
         });
 
+        btnKeluar.setBackground(new java.awt.Color(54, 255, 171));
+        btnKeluar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         btnKeluar.setText("Keluar");
+        btnKeluar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         btnKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKeluarActionPerformed(evt);
@@ -265,96 +296,87 @@ private final Highlighter.HighlightPainter highlightPainter =
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(430, 430, 430)
-                        .addComponent(btnSimpan))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblWords)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblParagraphs)
-                                .addGap(92, 92, 92)
-                                .addComponent(btnHitung)
-                                .addGap(285, 285, 285)
-                                .addComponent(btnCari)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCharsNoSpace)
-                                    .addComponent(lblChars)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lblSentences)))
-                                .addGap(180, 180, 180)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCariCount, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfCari, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(10, 10, 10)
-                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(btnKeluar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSentences)
+                    .addComponent(lblWords)
+                    .addComponent(lblCharsNoSpace)
+                    .addComponent(lblParagraphs)
+                    .addComponent(lblChars)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnCari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnHitung, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                        .addGap(45, 45, 45)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnSimpan)
+                                .addGap(37, 37, 37)
+                                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(btnKeluar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tfCari, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(lblCariCount, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(lblWords)
-                        .addGap(134, 134, 134))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCharsNoSpace)
-                    .addComponent(tfCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSentences)
-                    .addComponent(lblCariCount, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblWords)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCharsNoSpace)
+                .addGap(18, 18, 18)
+                .addComponent(lblSentences)
+                .addGap(19, 19, 19)
                 .addComponent(lblParagraphs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addComponent(lblChars)
-                .addGap(10, 10, 10)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(btnHitung))
-                    .addComponent(btnCari))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnKeluar)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSimpan)
-                            .addComponent(btnReset)))))
+                    .addComponent(lblCariCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnCari)
+                        .addComponent(tfCari)))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSimpan)
+                    .addComponent(btnReset)
+                    .addComponent(btnHitung)
+                    .addComponent(btnKeluar))
+                .addGap(67, 67, 67))
         );
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Aplikasi Penghitung Kata");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(286, 286, 286)
+                        .addComponent(jLabel1)))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
@@ -371,6 +393,7 @@ private final Highlighter.HighlightPainter highlightPainter =
     // Jika kosong → reset ke 0
     if (text.trim().isEmpty()) {
         lblChars.setText("Karakter dgn spasi: 0");
+        textAreaInput.requestFocusInWindow();
         return;
         
         
@@ -378,15 +401,15 @@ private final Highlighter.HighlightPainter highlightPainter =
 
     // Cek apakah ada whitespace (spasi/tab/newline). 
     // Jika tidak ada whitespace sama sekali, kita tidak tampilkan hasilnya (pakai "-" misalnya)
-    boolean hasWhitespace = text.matches(".*\\s+.*"); // true kalau ada spasi/tab/newline
-    if (!hasWhitespace) {
-        lblChars.setText("Karakter dgn spasi: -"); // atau "0" kalau kamu mau 0
+    boolean hasSpaceChar = text.indexOf(' ') >= 0;
+
+    if (!hasSpaceChar) {
+        lblChars.setText("Karakter dgn spasi: -");
     } else {
         lblChars.setText("Karakter dgn spasi: " + text.length());
     }
-    
-    textAreaInput.requestFocusInWindow();
 
+    textAreaInput.requestFocusInWindow();
     }//GEN-LAST:event_btnHitungActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -465,6 +488,7 @@ private final Highlighter.HighlightPainter highlightPainter =
     private javax.swing.JButton btnKeluar;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSimpan;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCariCount;
